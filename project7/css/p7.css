@@ -1,0 +1,258 @@
+* {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.momaryGame {
+  width: 100%;
+  height: 100vh;
+  padding: 200px 0px 60px;
+  background-color: #2b092a;
+  z-index: 3;
+}
+.momaryGame h2 {
+  color: #fff;
+  font-size: 100px;
+}
+.momaryGame p {
+  color: #fff;
+}
+/*intro*/
+.intro {
+  position: absolute;
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 80px;
+  font-weight: bolder;
+  color: #fff;
+  text-decoration: overline;
+  text-transform: uppercase;
+}
+/* momaryGame */
+.momaryGame {
+  position: relative;
+  height: fit-content;
+}
+.momaryGame .control-buttons,
+.gameOver,
+.WellDone {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #2b092ae5;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+
+.gameOver,
+.WellDone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gameOver::after {
+  content: "):'game Over ':(";
+  text-transform: uppercase;
+  font-size: 80px;
+  color: red;
+  font-weight: bolder;
+}
+@media (max-width: 667px) {
+  .gameOver::after {
+    font-size: 32px;
+  }
+}
+.WellDone::after {
+  content: "'Well Done'<3";
+  text-transform: uppercase;
+  font-size: 80px;
+  color: #1e7ab3ec;
+  font-weight: bolder;
+}
+.momaryGame .control-buttons span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: fit-content;
+  padding: 15px 20px;
+  background-color: #1e7ab3;
+  border-radius: 4px;
+  border: 3px solid #fff;
+  font-size: 40px;
+  color: #fff;
+  font-weight: bolder;
+  cursor: pointer;
+}
+.momaryGame > .front {
+  width: 90%;
+  height: 70px;
+  padding: 10px 20px;
+  margin: 20px auto;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.momaryGame > .front .wrong,
+.momaryGame > .front .hello {
+  color: #fff;
+  font-size: 25px;
+}
+.timeDawn {
+  color: #fff;
+  font-size: 45px;
+}
+.momaryGame .contenar {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  margin: 0 auto;
+  padding: 10px 20px;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(200px, 1fr));
+  grid-template-rows: repeat(4, minmax(150px, 1fr));
+
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+@media (max-width: 1133px) {
+  .momaryGame .contenar {
+    grid-template-columns: repeat(5, minmax(180px, 1fr));
+    grid-template-rows: repeat(4, minmax(120px, 1fr));
+    gap: 20px;
+  }
+
+  .momaryGame .contenar .box {
+    width: 180px;
+    height: 180px;
+  }
+}
+@media (max-width: 991px) {
+  .momaryGame .contenar {
+    grid-template-columns: repeat(5, minmax(90px, 1fr));
+    grid-template-rows: repeat(4, minmax(90px, 1fr));
+    gap: 15px;
+  }
+  .momaryGame .contenar .box {
+    width: 90px;
+    height: 90px;
+  }
+}
+@media (max-width: 667px) {
+  .momaryGame .contenar {
+    grid-template-columns: repeat(3, minmax(70px, 1fr));
+    grid-template-rows: repeat(8, minmax(70px, 1fr));
+    gap: 5px;
+  }
+  .momaryGame .contenar .box {
+    width: 70px;
+    height: 70px;
+  }
+  .intro {
+    font-size: 32px;
+  }
+}
+.momaryGame .contenar .box {
+  /* width: 240px;
+  height: 240px; */
+  padding: 20px;
+  border: 3px solid #fff;
+  border-radius: 4px;
+  position: relative;
+  transform-style: preserve-3d;
+
+  transition: transform 0.5s;
+  perspective: 800;
+  /* transform: rotateY(-180deg); */
+}
+.momaryGame .contenar .box:hover {
+  transform: translateY(-10px);
+}
+.momaryGame .contenar .box .face {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+}
+.momaryGame .contenar .box .front {
+  background-color: #00073e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.momaryGame .contenar .box .front::after {
+  content: "?";
+  font-size: 100px;
+  color: #fff;
+  font-weight: bolder;
+}
+.momaryGame .contenar .box .back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1e7ab3;
+  transform: rotateY(180deg);
+}
+.momaryGame .contenar .box .back > i {
+  font-size: 700%;
+  color: #fff;
+}
+.momaryGame .contenar .box.flipped,
+.momaryGame .contenar .box.has-math {
+  transform: rotateY(-180deg);
+  pointer-events: none;
+}
+.caption {
+  text-align: center;
+  font-size: 30px;
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: -10px;
+  margin-top: 20px;
+}
+
+.topRecord {
+  width: 30%;
+  height: 200px;
+  margin: 30px auto;
+  text-align: center;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 25px;
+}
+.topRecord th,
+.topRecord td {
+  padding: 10px 15px;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.topRecord tr th:nth-child(1) {
+  width: 20px;
+}
+.no-click {
+  pointer-events: none;
+}
+/* .topRecord tr .one {
+  background-color: red;
+} */
+/* .topRecord tr > td:nth-child(2) {
+  background-color: blue;
+}
+.topRecord tr > td:nth-child(3) {
+  background-color: green;
+} */
